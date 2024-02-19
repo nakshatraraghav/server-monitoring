@@ -1,6 +1,9 @@
 import { Express } from "express";
 import type { Request, Response } from "express";
+import prometheus from "prom-client";
+
 import logger from "./lib/logger";
+
 import { slowFunction } from "./lib/slow-function";
 
 export function router(app: Express) {
@@ -25,5 +28,11 @@ export function router(app: Express) {
       logger.error(`request failed: ${request.method} on ${request.url}`);
       return response.send("internal server error");
     }
+  });
+
+  app.get("/metrics", async (request: Request, response: Response) => {
+    response.setHeader("Content-Type", prometheus.register.contentType);
+    const metrics = await prometheus.register.metrics();
+    return response.send(metrics);
   })
 }
