@@ -21,11 +21,11 @@
     "@types/node": "^20.11.19",
     "dotenv": "^16.4.4",
     "express": "^4.18.2",
-    "pino": "^8.19.0",
-    "pino-pretty": "^10.3.1",
     "prom-client": "^15.1.0",
     "tsx": "^4.7.1",
     "typescript": "^5.3.3",
+    "winston": "^3.11.0",
+    "winston-loki": "^6.0.8",
     "zod": "^3.22.4"
   }
 }

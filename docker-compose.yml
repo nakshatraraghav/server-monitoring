@@ -12,3 +12,8 @@ services:
     image: grafana/grafana-oss
     ports:
       - 3000:3000
+
+  loki:
+    image: grafana/loki
+    ports:
+      - 3100:3100
